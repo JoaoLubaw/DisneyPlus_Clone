@@ -1,0 +1,71 @@
+@use 'variaveis';
+
+.footer {
+    background-color: variaveis.$CorDeFundoFooter;
+    display: flex;
+    margin-top: 100px;
+    padding-top: 24px;
+
+    @media (max-width: 768px) {
+        max-height: 375px;
+        height: 100%;
+        }
+    
+
+    &__container {
+        max-width: 500px;
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+        padding-top: 0px;
+    }
+
+
+    &__logo {
+        height: auto;
+        max-height: 38px;
+        @media (max-width: 768px) {
+            height: 38px;
+            }
+    }
+
+
+    p {
+        letter-spacing: -.1px;
+        line-height: 1.5;
+        color: variaveis.$CorTexto3;
+        padding: 0 28px;
+    }
+
+
+    &__links {
+        display: flex;
+        justify-content: center;
+        font-size: 11px;
+        flex-flow: row wrap;
+        box-sizing: border-box;
+        
+        
+
+        &__item {
+            
+            word-spacing: normal;
+
+            a {
+                text-decoration: none;
+                padding: 1px 6px;
+                display: block;
+                margin: 11px 5px 10px;
+                height: 18px;
+
+                &:hover {
+                    color: variaveis.$CorTextoSecundario;
+                }
+            }
+        }
+    }
+
+    p {
+        margin-bottom: 16px;
+    }
+}

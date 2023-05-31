@@ -1,0 +1,202 @@
+@use 'variaveis';
+@use 'footer';
+@use 'hero';
+@use 'menu';
+
+@font-face {
+    font-family: Avenir;
+    src: url(../../assets/fonts/Avenir-Regular.woff2);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Avenir;
+    src: url(../../assets/fonts/Avenir-Bold.woff2);
+    font-weight: 700;
+}
+
+@mixin text($fontSize: 15px) {
+    font-size: $fontSize;
+    line-height: $fontSize + 10px;
+    color:  variaveis.$CorTextoPrincipal;
+}
+
+@mixin title ($fontSize: 22px) {
+    @include text($fontSize);
+    color: variaveis.$CorTextoPrincipal;
+}
+
+//Importações terminadas, partindo para os códigos.
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Avenir, sans-serif;
+    list-style: none;
+}
+
+.background {
+    background-image: radial-gradient(farthest-side at 73% 21%, transparent, rgb(26, 29, 41));
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: repet;
+    z-index: -1;
+
+    @media (max-width: 768px) {
+        height: 32%;
+        }
+    }
+
+        body {
+            background-color: variaveis.$CorDeFundo;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: 0;
+            padding-bottom: 50px;
+        
+            @media (max-width: 768px) {
+                background-color:  rgb(26, 29, 41);
+                }
+            
+        }
+
+header {
+
+    @media (max-width: 768px) {
+        background-image:linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.03) 15%, rgba(0, 0, 0, 0.125) 30%, rgba(0, 0, 0, 0.25) 46%, rgba(0, 0, 0, 0.4) 61%, rgba(0, 0, 0, 0.553) 75%, rgba(0, 0, 0, 0.694) 88%, rgba(0, 0, 0, 0.8));
+        background-clip: content-box;
+    }
+
+    img {
+        padding-left: 36px;
+        margin-top: 20px;
+        height: 48px;
+
+        @media (max-width: 768px) {
+        height: 38px;
+        padding: 0 calc(3.5vw + 24px);
+        }
+        
+    }
+
+    
+}
+
+
+.text--big {
+    @include text(20px);
+
+    @media (max-width: 768px) {
+        @include text(15px);
+    }
+}
+
+.text--medium {
+    @include text;
+    @media (max-width: 768px) {
+        @include text(14px);
+    }
+
+    &--detailTitle{
+        color: variaveis.$CorTexto3;
+    }
+}
+
+.text--small {
+    @include text(12px);
+
+    @media (max-width: 768px) {
+        @include text(11px);
+    }
+}
+
+.title--small {
+    @include title(15px);
+}
+
+.title--imax{
+    @include title;
+    color:  variaveis.$CorTextoSecundario;
+
+    @media (max-width: 768px) {
+        @include title(24px);
+    }
+}
+
+.title--big {
+    @include title(24px);
+}
+
+.link--text {
+    @include text(12px);
+    color:  variaveis.$CorLink;
+    text-decoration: none;
+}
+
+.button {
+        align-items: center;
+        justify-content: center;
+        font-size: 15px;
+        font-weight: bold;
+        background-color: variaveis.$CorTextoPrincipal;
+        text-transform: uppercase;
+        border-radius: 4px;
+        text-decoration: none;
+        cursor: pointer;
+
+        &--primary {
+            color:  variaveis.$CorTextoBotaoPrincipal; 
+            border: 1px solid transparent;
+            height: 56px;
+            padding: 0 24px;
+        }
+
+        &:hover {
+            background-color: darken(variaveis.$CorTextoPrincipal, 25%);
+        }
+
+        &--secundary {
+            background-color: variaveis.$CorDeFundoBotaoSecundario;
+            border: 1px solid variaveis.$CorTextoPrincipal;
+            color: variaveis.$CorTextoPrincipal;
+            height: 54px;
+            padding: 0 24px;
+            
+            &:hover {
+                background-color: variaveis.$CorTextoPrincipal;
+                color:variaveis.$CorTextoBotaoPrincipal;
+            }
+        }
+
+        &--dark {
+            background-color: #000;
+            border-radius: 50%;
+            border: 2px solid white;
+            height: 40px;
+            padding: 8px 10px;
+
+            svg path {
+                fill:white;
+            }
+
+            &:hover {
+                background-color: white;
+                    svg path {
+                    fill: #000;
+                    stroke: #000;
+                }
+                    svg circle {
+                        fill: #000;
+                    }
+            }
+            }
+}
